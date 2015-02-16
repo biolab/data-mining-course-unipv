@@ -44,33 +44,85 @@ The following instructions will guide you to install Orange data mining suite we
 <li>install a few data files that we will use during the workshop.</li>
 </ol></p>
 
-<h3><a name="mac"></a>Step 1: Mac OS X</h3>
+<h2><a name="mac"></a>Step 1: Mac OS X</h2>
 
 <h4>In a nutshell</h4>
 
-<p>Go to Orange home page at <a href="http://orange.biolab.si">http://orange.biolab.si</a>, download the latest version of Orange (the dmg file), install it on your laptop. </p>
+<p>Go to Orange home page at <a href="http://orange.biolab.si">http://orange.biolab.si</a>, 
+download the latest version of Orange3 (the dmg file), install it on your laptop. </p>
 
-<h4>Detailed installation instructions</h4>
+<h4> Automatic setup </h4>
+<p> Install can be automated by using 
+<a href="setup-mac.sh"> Mac OS X setup script </a>. 
+Setup will install Orange3 and its dependencies in a virtual environment, 
+and finally run IPython notebook. Before the installation, 
+move to directory, where you want Orange3 to be installed. 
+Following command wil start installation, which usually takes arround 15 minutes. </p>
+<pre><code> source setup-mac.sh </code></pre>
+<p>Install script will also create and enter new virtual environment for you, which 
+you can reenter using following command:</p>
+<pre><code> source orange3env/bin/activate </code></pre>
+<p>Orange can be used only from within virtual environment.</p>
+
+<h4> Manual installation </h4>
+<p> Instead of automatic install, you can install Orange3 manually.
+Open a terminal and run the following commands.</p>
+
+Install homebrew package manager by executing (it will ask you to install XCode Command Line Tools):
+<pre><code>
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+</code></pre>
+
+<p> Enable science packages and install dependencies </p>
+<pre><code>brew tap homebrew/science</code></pre>
+
+<p>Install the necessary system packages:</p>
+
+<pre><code>brew install git python3 python-virtualenv python3-devel 
+	gcc gcc-c++ python3-numpy python3-numpy-devel 
+	python3-scipy python3-matplotlib python3-IPython 
+	libxml2-devel lzlib-devel 
+</pre></code>
+
+<p> Since Orange3 is using python3 we need to create a virtual environment. </p>
+
+<pre><code>mkdir orange3env
+virtualenv -p python3 --system-site-packages orange3env
+source orange3env/bin/activate</pre></code>
+
+<p> Install Orange and its requirements (this step will take about 15 minutes):
+<pre><code>git clone https://github.com/biolab/orange3
+cd orange3
+pip install -r requirements.txt
+python setup.py develop
+pip install Orange-Bioinformatics networkx python-igraph</pre></code>
+
+<p> Now you can start IPython environment and import Orange. To exit ipython type Ctrl+D.
+<pre><code>ipython3
+>>> import Orange</pre></code>
+
+<p> To start IPython notebook, write the following line </p>
+<pre><code>ipython3 notebook</pre></code>
 
 
-<p>Go to Orange home page at <a href="http://orange.biolab.si">http://orange.biolab.si</a> to download the installation file.</p>
+<!--p>Go to Orange home page at <a href="http://orange.biolab.si">http://orange.biolab.si</a> to download the installation file.</p>
 
 <!--p><img src="image01.png" style="max-width:500px;"></p-->
 
-<p>Your browser will most likely save the installation file (a file with a name similar to Orange3-3.2.dev-f7c0f51.dmg) in your Downloads folder. Open the installation file by double clicking on its icon. A window like the one below should open. Drag the Orange icon to your Applications.</p>
+<!--p>Your browser will most likely save the installation file (a file with a name similar to Orange3-3.2.dev-f7c0f51.dmg) in your Downloads folder. Open the installation file by double clicking on its icon. A window like the one below should open. Drag the Orange icon to your Applications.</p>
 
-<!--p><img src="image02.png" style="max-width:250px;"></p-->
+<!--p><img src="image02.png" style="max-width:250px;"></p>
 
-<p>Open Orange from your Application folder. That is, open the Application folder, find an application with the name Orange, click on its icon to select it, and open it by choosing Open from Finder's File menu (you should use this procedure instead of double click to open unregistered applications for the first time). </p>
+<p>Open Orange from your Application folder. That is, open the Application folder, find an application with the name Orange, click on its icon to select it, and open it by choosing Open from Finder's File menu (you should use this procedure instead of double click to open unregistered applications for the first time). </p-->
 
-<h3><a name="win"></a>Step 1: Windows</h3>
+<h2><a name="win"></a>Step 1: Windows</h2>
 
 <h4>In a nutshell</h4>
 
 <ul>
 <li>Download and open Orange-installer.exe from <a href="http://orange.biolab.si">http://orange.biolab.si</a>.</li>
 <li>Follow installation wizard to install Orange3 and its dependencies (Python3.4, NumPy, ...).</li>
-<li>Open windows command prompt and start Python with command C:\Python34\python.exe.</li>
+<li>Open windows command prompt and start IPython notebook with command  'C:\Python34\Scripts\ipython3.exe notebook'.</li>
 </ul>
 
 <h4>Detailed installation instructions</h4>
@@ -100,15 +152,29 @@ The following instructions will guide you to install Orange data mining suite we
 <p> If you used default settings during installation, you can enter python environment by writing following line:
 <pre><code> C:\Python34\python.exe </code></pre>
 
-<p>Now import Orange.</p>
-<pre><code> >>> import Orange </code></pre>
+<p> To start IPython notebook write the following line: </p>
+<pre><code> C:\Python34\Scripts\ipython3.exe notebook</code></pre>
 
+<h2><a name="lin"></a>Step 1: Linux</h2>
 
-<h3><a name="lin"></a>Step 1: Linux</h3>
+<h3>Ubuntu (tested on Ubuntu 12.04 and 14.04)</h3>
 
-<h4>Ubuntu (tested on Ubuntu 12.04 and 14.04)</h4>
+<h4> Automatic setup </h4>
+<p> Install can be automated by using 
+<a href="setup-ubuntu.sh"> Ubuntu setup script </a>. 
+Setup will install Orange3 and its dependencies in a virtual environment, 
+and finally run IPython notebook. Before the installation, 
+move to directory, where you want Orange3 to be installed. 
+Following command wil start installation, which usually takes arround 15 minutes. </p>
+<pre><code> source setup-ubuntu.sh </code></pre>
+<p>Install script will also create and enter new virtual environment for you, which 
+you can reenter using following command:</p>
+<pre><code> source orange3env/bin/activate </code></pre>
+<p>Orange can be used only from within virtual environment.</p>
 
-<p>Open a terminal and run the following commands.</p>
+<h4> Manual installation </h4>
+<p>Alternatively, you can choose manual installation. 
+Open a terminal and run the following commands.</p>
 
 <p>Install the necessary system packages:</p>
 
@@ -133,16 +199,33 @@ python setup.py develop
 pip install Orange-Bioinformatics networkx python-igraph
 </pre></code>
 
-<p> Now you can start IPython environment and import Orange. To exit ipython type Ctrl+D.
-<pre><code>ipython
+<p> Now you can check if Orange was successfully installed from IPython environment. 
+To exit ipython type Ctrl+D.
+<pre><code>ipython3
 >>> import Orange</pre></code>
 
-<p> To start IPython notebook, write the following line<q </p>
-<pre><code>ipython notebook</pre></code>
 
-<h4>openSUSE (tested on openSUSE 13.2)</h4>
+<p> To start IPython notebook, write the following line </p>
+<pre><code>ipython3 notebook</pre></code>
 
-<p>Open a terminal and run the following commands.</p>
+<h3>openSUSE (tested on openSUSE 13.2)</h3>
+
+<h4> Automatic setup </h4>
+<p> Install can be automated by using 
+<a href="setup-suse.sh"> openSUSE setup script </a>. 
+Setup will install Orange3 and its dependencies in a virtual environment, 
+and finally run IPython notebook. Before the installation, 
+move to directory, where you want Orange3 to be installed. 
+Following command wil start installation, which usually takes arround 15 minutes. </p>
+<pre><code> source setup-suse.sh </code></pre>
+<p>Install script will also create and enter new virtual environment for you, which 
+you can reenter using following command:</p>
+<pre><code> source orange3env/bin/activate </code></pre>
+<p>Orange can be used only from within virtual environment.</p>
+
+<h4> Manual installation </h4>
+<p>Alternatively, you can choose manual installation. 
+Open a terminal and run the following commands.</p>
 
 <p>Install the necessary system packages:</p>
 
@@ -166,12 +249,13 @@ pip install -r requirements.txt
 python setup.py develop
 pip install Orange-Bioinformatics networkx python-igraph</pre></code>
 
-<p> Now you can start IPython environment and import Orange. To exit ipython type Ctrl+D.
-<pre><code>ipython
+<p> Now you can check if Orange was successfully installed from IPython environment. 
+To exit ipython type Ctrl+D.
+<pre><code>ipython3
 >>> import Orange</pre></code>
 
-<p> To start IPython notebook, write the following line<q </p>
-<pre><code>ipython notebook</pre></code>
+<p> To start IPython notebook, write the following line </p>
+<pre><code>ipython3 notebook</pre></code>
 
       </section>
       <footer>

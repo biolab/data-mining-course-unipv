@@ -12,4 +12,4 @@ pip install -r requirements.txt
 python setup.py develop
 pip install Orange-Bioinformatics networkx python-igraph
 
-ipython notebook
+ipython3 notebook

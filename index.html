@@ -18,19 +18,19 @@
 
         <h2>Data Mining in Python</h2>
         
-        A three-day hands-on course on data mining. Instructors: Blaž Zupan and Marinka Žitnik.
+        <p></p>A three-day hands-on workshop on data mining. Instructors: Blaž Zupan and Marinka Žitnik.
         The course was prepared by members of the <a href="http://www.biolab.si">Bioiformatics Lab</a>, Ljubljana. This page
-        includes a documentation on installation of software that will be used during the course. 
+        includes a documentation on installation of software that will be used during the course. </p>
 
         <h3>Software Installation Instructions</h3>
 
-		<h4>Step 1: Orange + add-ons</h4>
+		<h4>Step 1: Python data mining libraries</h4>
 
 		<p>For <a href="#mac">Mac OS X</a>, <a href="#win">Windows</a>, or <a href="#lin">Linux</a>.</p>
 
-		<h4>Step 2: Workshop Data Files</h4>
+		<h4>Step 2: Data files for the workshop</h4>
 
-		<p>Data files installation is independent of operating system. <a href="#s3">Instructions for all operating systems</a>.</p>
+		<p>Data files are independent of operating system. <a href="#s3">Instructions for all operating systems</a>.</p>
 
 
       </header>
@@ -38,15 +38,10 @@
 
 
 <p>
-The following instructions will guide you to install Orange data mining suite we will use at the workshop.
+The following instructions will guide you through installation of various libraries and enviroments we will use during the workshop.
 </p>
- <!--If you have any questions or any problems with the installation, you are welcome to visit us at the Installation Clinic during coffee breaks on Wednesday from 10:15-10:45 and 15:40-16:15.</p-->
 
-<p>Installation of Orange is operating-system specific, but common to Mac, Windows and Linux is that you need to 
-<ol>
-<li>install Orange with add-ons for bioinformatics and network analysis, and</li>
-<li>install a few data files that we will use during the workshop.</li>
-</ol></p>
+<p>If you have any questions or any problems with the installation, you are welcome to visit us at the Installation Clinic half an hour before the start of the workshop.</p>
 
 <h2><a name="mac"></a>Step 1: Mac OS X</h2>
 
@@ -58,19 +53,19 @@ download the latest version of Orange3 (the dmg file), install it on your laptop
 <h4> Automatic setup </h4>
 <p> Install can be automated by using 
 <a href="setup-mac.sh"> Mac OS X setup script </a>. 
-Setup will install Orange3 and its dependencies in a virtual environment, 
+Setup will install Orange3, numpy and scikit-learn and their dependencies in a virtual environment, 
 and finally run IPython notebook. Before the installation, 
 move to directory, where you want Orange3 to be installed. 
-Following command wil start installation, which usually takes arround 15 minutes. </p>
+The following command wil start the installation, which should take about 15 minutes. </p>
 <pre><code> source setup-mac.sh </code></pre>
-<p>Install script will also create and enter new virtual environment for you, which 
+<p>Install script will also create and enter new virtual environment, which 
 you can reenter using following command:</p>
 <pre><code> source orange3env/bin/activate </code></pre>
-<p>Orange can be used only from within virtual environment.</p>
+<p>The installed packages can be used only from within virtual environment.</p>
 
 <h4> Manual installation </h4>
-<p> Instead of automatic install, you can install Orange3 manually.
-Open a terminal and run the following commands.</p>
+<p> Instead of automatic install, you can install the software manually.
+Open a terminal and run the following commands:</p>
 
 Install homebrew package manager by executing (it will ask you to install XCode Command Line Tools):
 <pre><code>
@@ -88,7 +83,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 	libxml2-devel lzlib-devel 
 </pre></code>
 
-<p> Since Orange3 is using python3 we need to create a virtual environment. </p>
+<p> We will use Python3 and need to create a virtual environment for it:</p>
 
 <pre><code>mkdir orange3env
 virtualenv -p python3 --system-site-packages orange3env
@@ -194,7 +189,7 @@ sudo apt-get install git python-pip python-virtualenv
 	libxml2-dev zlib1g-dev
 </pre></code>
 
-<p> Since Orange3 is using python3 we need to create a virtual environment. </p>
+<p>We will use Python3 and need to create a virtual environment for it:</p>
 
 <pre><code>mkdir orange3env
 virtualenv -p python3 --system-site-packages orange3env
@@ -245,7 +240,7 @@ sudo zypper install git python-virtualenv python3-devel
 	libxml2-devel lzlib-devel 
 </pre></code>
 
-<p> Since Orange3 is using python3 we need to create a virtual environment. </p>
+<p> We will use Python3 and need to create a virtual environment for it:</p>
 
 <pre><code>mkdir orange3env
 virtualenv -p python3 --system-site-packages orange3env

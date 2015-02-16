@@ -72,7 +72,7 @@ Install homebrew package manager by executing (it will ask you to install XCode 
 
 <p>Install the necessary system packages:</p>
 
-<pre><code>brew install git python3 gcc suite-sparse swig
+<pre><code>brew install makedepend git python3 gcc suite-sparse swig
 </pre></code>
 
 <p> We will use Python3 and need to create a virtual environment for it:</p>
@@ -85,9 +85,11 @@ source orange3env/bin/activate
 <p> Install Orange and its requirements (this step will take about 15 minutes):
 <pre><code>git clone https://github.com/biolab/orange3
 cd orange3
+pip install numpy
 pip install -r requirements.txt
 python setup.py develop
-pip install ipython "ipython[notebook]" Orange-Bioinformatics networkx python-igraph</pre></code>
+pip install ipython[all] Orange-Bioinformatics networkx python-igraph matplotlib
+</pre></code>
 
 <p> Now you can start IPython environment and import Orange. To exit ipython type Ctrl+D.
 <pre><code>ipython
@@ -96,6 +98,9 @@ pip install ipython "ipython[notebook]" Orange-Bioinformatics networkx python-ig
 <p> To start IPython notebook, write the following line </p>
 <pre><code>ipython notebook</pre></code>
 
+<p> If you get ValueError: unknown locale: UTF-8, you can solve it using following commands: </p>
+<pre><code>export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8</code></pre>
 
 <!--p>Go to Orange home page at <a href="http://orange.biolab.si">http://orange.biolab.si</a> to download the installation file.</p>
 

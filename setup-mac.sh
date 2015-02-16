@@ -13,7 +13,7 @@ cd orange3 &&
 pip install numpy &&
 pip install -r requirements.txt &&
 python setup.py develop &&
-pip install ipython[all] Orange-Bioinformatics networkx python-igraph
+pip install ipython[all] Orange-Bioinformatics networkx python-igraph matplotlib
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
